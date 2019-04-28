@@ -1,13 +1,12 @@
 # operator-courier
 Docker image to to build, validate and push Operator Artifacts with operator-courier
 
-# Verify an operator artifact 
-In the artifact dir run:
+# Verify an artifacts in current dir
 ```
-docker run -v `pwd`:`pwd` -w `pwd` -it tufin/operator-courier
+docker run -v `pwd`:`pwd` -w `pwd` tufin/operator-courier operator-courier verify .
 ```
 
-# Other commands
+# Help
 ```
-docker run -v `pwd`:`pwd` -w `pwd` -it tufin/operator-courier operator-courier help
+docker run tufin/operator-courier operator-courier --help
 ```
