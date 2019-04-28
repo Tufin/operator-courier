@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Build docker image
           command: |
-            docker build -t operator-courier .
+            docker build -t tufin/operator-courier .
       - run:
           name: Push docker image
           command: |
