@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    working_directory: /go/src/github.com/tufin/operator-courier
+    docker:
+      - image: circleci/golang
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build docker image
+          command: |
+            docker build -t operator-courier .
+      - run:
+          name: Push docker image
+          command: |
+            echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin
+            docker push tufin/operator-courier
